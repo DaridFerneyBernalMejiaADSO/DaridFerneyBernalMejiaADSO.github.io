@@ -1,0 +1,238 @@
+/* Colores reutilizables en todo el sitio. */
+:root {
+  --bg: #f6f8f7;
+  --card: #ffffff;
+  --text: #1d2a27;
+  --muted: #5b6b67;
+  --accent: #385c57;
+  --accent-2: #6f9a93;
+  --border: #dfe7e4;
+}
+
+/* Cambia la paleta cuando el dispositivo tiene activado el modo oscuro. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #101614;
+    --card: #17201d;
+    --text: #e8f0ed;
+    --muted: #9bb0aa;
+    --border: #26332f;
+    --accent: #7fb3aa;
+    --accent-2: #385c57;
+  }
+}
+
+/* Hace que el tamaño incluya bordes y elimina márgenes predeterminados. */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0
+}
+
+/* Estilos generales del texto y fondo de la página. */
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6
+}
+
+/* Color general de los enlaces. */
+a {
+  color: var(--accent)
+}
+
+/* Cabecera principal con fondo degradado y contenido centrado. */
+header {
+  background: linear-gradient(135deg, #385c57, #24403c);
+  color: #fff;
+  padding: 72px 20px 64px;
+  text-align: center
+}
+
+/* Foto de perfil circular; object-fit evita deformar la imagen. */
+.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: #ffffff22;
+  border: 3px solid #ffffff66;
+  margin: 0 auto 20px;
+  display: block;
+  object-fit: cover
+}
+
+/* Ajusta el tamaño del nombre en la cabecera según el ancho de pantalla. */
+header h1 {
+  font-size: clamp(1.8rem, 5vw, 2.6rem)
+}
+
+/* Presentación breve debajo del nombre. */
+header p {
+  opacity: .9;
+  margin-top: 6px;
+  font-size: 1.1rem
+}
+
+/* Distribuye los enlaces de navegación y permite que salten de línea. */
+nav {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 24px
+}
+
+/* Apariencia de cada botón de navegación. */
+nav a {
+  color: #fff;
+  text-decoration: none;
+  border: 1px solid #ffffff66;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: .95rem
+}
+
+/* Resalta el botón cuando el cursor pasa sobre él. */
+nav a:hover {
+  background: #ffffff22
+}
+
+/* Limita y centra el ancho del contenido principal. */
+main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 32px 20px 60px
+}
+
+/* Apariencia común de las secciones del portafolio. */
+section {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 26px;
+  margin-bottom: 22px
+}
+
+/* Estilo de los títulos de sección. */
+h2 {
+  color: var(--accent);
+  margin-bottom: 12px;
+  font-size: 1.3rem
+}
+
+/* Acomoda las habilidades como etiquetas que pueden envolverse. */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px
+}
+
+/* Apariencia de cada etiqueta de habilidad. */
+.tags span {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: .92rem
+}
+
+/* Cuadrícula adaptable: las columnas se ajustan al espacio disponible. */
+.grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr))
+}
+
+/* Contenedor individual de cada proyecto. */
+.proj {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px
+}
+
+/* Título de un proyecto. */
+.proj h3 {
+  font-size: 1.05rem;
+  margin-bottom: 6px
+}
+
+/* Descripción del proyecto con color de texto secundario. */
+.proj p {
+  color: var(--muted);
+  font-size: .95rem;
+  margin-bottom: 10px
+}
+
+/* Tabla de tecnologías; el contenedor permite desplazarla en pantallas estrechas. */
+.tabla-contenedor {
+  overflow-x: auto;
+  margin-bottom: 14px
+}
+
+.tabla-tecnologias {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .9rem
+}
+
+.tabla-tecnologias th,
+.tabla-tecnologias td {
+  border: 1px solid var(--border);
+  padding: 8px 10px;
+  text-align: left
+}
+
+.tabla-tecnologias th {
+  background: var(--bg)
+}
+
+/* Organiza los certificados en recuadros que se adaptan al ancho disponible. */
+.certificados-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px
+}
+
+/* Recuadro individual de cada certificado. */
+.certificado {
+  min-width: 0;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px
+}
+
+/* Reduce las vistas previas sin deformar las imágenes. */
+.certificado img {
+  display: block;
+  width: 100%;
+  height: 340px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: var(--bg)
+}
+
+.certificado figcaption {
+  margin-top: 10px;
+  color: var(--muted);
+  text-align: center;
+  font-size: .9rem
+}
+
+/* Sangría de las listas de formación y contacto. */
+ul {
+  padding-left: 20px
+}
+
+/* Espacio entre elementos de las listas. */
+li {
+  margin-bottom: 6px
+}
+
+/* Pie de página centrado con texto secundario. */
+footer {
+  text-align: center;
+  color: var(--muted);
+  padding: 24px;
+  font-size: .9rem
+}
